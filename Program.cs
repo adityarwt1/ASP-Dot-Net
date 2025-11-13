@@ -1,21 +1,20 @@
-// var builder = WebApplication.CreateBuilder(args);
+using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.Hosting;
 
-
-// var app = builder.Build();
-
-
-// app.Run();
-
-
-// must be var
-using Microsoft.AspNetCore.Http.HttpResults;
-
-var builder  =  WebApplication.CreateBuilder(args);
-
+var builder = WebApplication.CreateBuilder(args);
 var app = builder.Build();
 
-app.MapGet("/" , ()=>{
-    return Results.Ok(new {message = "200 response"});
-}).WithName("Home Page");
+app.MapPost("/raw", (UserData data) =>
+{
+    // You already have the body as an object
+    return Results.Ok(new { data });
+});
 
 app.Run();
+
+public class UserData
+{
+    public string Name { get; set; }
+    public int Age { get; set; }
+}
