@@ -23,9 +23,10 @@ app.MapGet("/" , ()=>{
 }).WithName("Home Page");
 
 ```
+
 3. How to extract data from body
 
-```cs 
+```cs
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Hosting;
