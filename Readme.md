@@ -13,3 +13,13 @@ app.MapGet("/" , ()=>{
 
 app.Run();
 ```
+
+2. For sending the response ok
+
+```cs
+
+app.MapGet("/" , ()=>{
+    return Results.Ok(new {message = "200 response"});
+}).WithName("Home Page");
+
+```
