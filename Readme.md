@@ -48,3 +48,16 @@ public class UserData
     public int Age { get; set; }
 }
 ```
+4. Api redirecting
+
+```cs
+var app = builder.Build();
+
+app.MapGet("/", ()=>{
+    return Results.Redirect("/hellow");
+});
+
+app.MapGet("/hellow",()=>{
+    return Results.Ok(new {message = "Message from the helloow route"});
+});
+```
